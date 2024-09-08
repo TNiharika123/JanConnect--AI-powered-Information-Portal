@@ -1,15 +1,23 @@
 // src/App.js
 
-import React from 'react';
-import InterestedSelection from './components/Options/InterestedSelection';
 
+import "./App.css";
+import React from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+// import InterestedSelection from './components/Options/InterestedSelection';
+// import MainPage from './components/MainPage/MainPage';
+import Header from "./components/Header/Header";
 
 function App() {
     return (
-        <div className="App">
-            <InterestedSelection />
+        <div className="min-h-screen w-screen ">
+            {/* <InterestedSelection /> */}
+            <Header />
+            {/* <MainPage/> */}
         </div>
     );
 }
 
 export default App;
+

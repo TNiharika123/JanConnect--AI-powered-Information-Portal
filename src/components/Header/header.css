@@ -1,0 +1,85 @@
+/* Ensure the topbar takes the full width and is fixed at the top */
+.topbar {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    padding-top: 100px;
+     /* Example background color */
+    width: 100%;
+    position: fixed; /* Fix the position to the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #333; /* Line color */
+  }
+  
+  /* Center the content in the middle */
+  .topbarLeft,
+  .topbarCenter,
+  .topbarRight {
+    display: flex;
+    align-items: center;
+  }
+  
+  .topbarLeft,
+  .topbarRight {
+    gap: 15px; /* Spacing between icons or items */
+  }
+  
+  .topbarIcon {
+    color: black; /* Social icon color */
+    font-size: 24px; /* Icon size */
+    transition: color 0.3s ease;
+  }
+  
+  .topbarIcon:hover {
+    color: lightgray; /* Icon hover color */
+  }
+  
+  .topbarCenter {
+    flex: 1; /* Allow center items to take up remaining space */
+    justify-content: center;
+  }
+  
+  .topbarList {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .topbarListItem {
+    margin: 0 15px; /* Spacing between list items */
+  }
+  
+  .link {
+    text-decoration: none;
+    color: black; /* Link color */
+    transition: color 0.3s ease;
+  }
+  
+  .link.active {
+    font-weight: bold; /* Active link styling */
+  }
+  
+  .link:hover {
+    color: lightgray; /* Link hover color */
+  }
+  
+  .topbarImg {
+    width: 40px; /* Profile image size */
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .topbarSearchIcon {
+    color: white;
+    font-size: 20px;
+    margin-left: 15px;
+  }
+  

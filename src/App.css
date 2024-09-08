@@ -1,44 +1,128 @@
-
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.video-container {
+    position: relative;
+    height: 500px;
+    overflow: hidden; /* Ensure video doesn't overflow the container */
+    border-radius:1% ;
   }
-  to {
-    transform: rotate(360deg);
+
+  
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure the text overlay is on top of the video */
+    color: white; /* Adjust text color as needed */
+    text-align: center; /* Center the text */
+    transition: 0.5s ease-out;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .overlay-text-field {
+    font-size: 4em; /* Adjust font size as needed */
+    padding: 10px; /* Optional: Add padding for better appearance */
+    border-radius: 5px; /* Optional: Add border radius */
   }
+  
+  
+h1 span {
+    transition: 0.5s ease-out;
+  }
+  h1:hover span:nth-child() {
+    margin-right: 5px;
+  }
+  h1:hover span:nth-child():after {
+    content: "'";
+  }
+  h1:hover span:nth-child() {
+    margin-left: 30px;
+  }
+  h1:hover span {
+    color: #fff;
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff; /* Reduced glow effect */
+  }
+.sub-heading
+{
+  font-size: 15px;
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  /* General navbar styles */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7); /* Transparent background */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 7px;
+    z-index: 1000;
+   
+  }
+  
+  /* Container for navbar content */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 100%;
+  }
+  
+  /* Navigation items */
+  .nav-items {
+    display: flex;
+  justify-content: center;
+  align-items: center;  
+    gap: 8px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  /* Link styles */
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  /* Active link style */
+  .nav-link.active {
+    color: rgb(195, 232, 92); /* Active link color */
+  }
+  
+  /* Hover effect for links */
+  .nav-link:hover {
+    color: #80e198; /* Hover color */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .nav-items {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .navbar {
+      flex-direction: column;
+      padding: 20px;
+    }
+    
+    .nav-link {
+      margin: 5px 0;
+    }
+  }
+  /* signup button */
+  .signup-button {  
+    z-index: 400; /* Adjust z-index as needed */
+    border: 3px solid #007bff;; /* Remove border or set border properties */
+    margin-top: 20px;
+    border-radius:20%;
+    border-color: black;
+    padding: 10px ; /* Adjust padding for a more reasonable size */
+    background-color: #468b33; /* Example background color */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    /* Add more styles as needed */
+  }
+  
