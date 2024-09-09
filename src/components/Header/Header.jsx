@@ -1,76 +1,23 @@
-// import { NavLink } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import "/src/App.css";
-// function Header() {
-//   const authStatus = useSelector((state) => state.auth.authStatus);
-
-//   const navItems = [
-//     { name: "Home", slug: "/", active: true },
-//     { name: "About", slug: "/about", active: !authStatus },
-//     { name: "Contact", slug: "/contact", active: !authStatus },
-//     { name: "Login", slug: "/login", active: !authStatus },
-//     { name: "Community", slug: "/community" },
-//     { name: "Tasks", slug: "/tasks", active: authStatus },
-//     { name: "Scanner", slug: "/scanner", active: authStatus },
-//   ];
-
-//   const recommendationLinkStyle = {
-//     textDecoration: 'none',
-//     color: 'white',
-//     margin: '2px',
-//     backgroundColor: 'rgba(40, 167, 69, 0.1)',
-//     transition: 'color 0.4s ease',
-//   };
-
-//   const recommendationLinkHoverStyle = {
-//     color: 'green',
-//   };
-
-//   return (
-//     <header className="navbar">
-//       <div className="container">
-//         <div className="nav-items">
-//           {navItems?.map(
-//             (item, index) =>
-//               item.active && (
-//                 <NavLink
-//                   to={item.slug}
-//                   key={index}
-//                   className={({ isActive }) =>
-//                     `nav-link ${isActive ? "active" : ""}`
-//                   }
-//                 >
-//                   {item.name}
-//                 </NavLink>
-//               )
-//           )}
-//           {authStatus && (
-//             <a
-//               href="http://127.0.0.1:5000/recommend?user_id=1"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               style={recommendationLinkStyle}
-//               onMouseOver={(e) => Object.assign(e.target.style, recommendationLinkHoverStyle)}
-//               onMouseOut={(e) => Object.assign(e.target.style, recommendationLinkStyle)}
-//             >
-//               Resource Recommendation
-//             </a>
-//           )}
-//           {authStatus && <LogoutBtn />}
-//         </div>
-//       </div>
-//     </header>
-//   );
-// }
-
-// export default Header;
-
-
 import { NavLink } from "react-router-dom";
 import "./Header.css";
-
+import { useState, useEffect } from "react";
 
 function Header() {
+  const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString());
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+
+  useEffect(() => {
+    const updateTime = () => {
+      setCurrentDate(new Date().toLocaleDateString());
+      setCurrentTime(new Date().toLocaleTimeString());
+    };
+
+    const intervalId = setInterval(updateTime, 1000); // Update every second
+
+    return () => clearInterval(intervalId); // Clean up the interval on component unmount
+  }, []);
+
+  const [dropdownVisible, setDropdownVisible] = useState(false);
   const user = true;
 
   const socialIcons = [
@@ -82,53 +29,102 @@ function Header() {
 
   const topListItems = [
     { name: "Home", slug: "/" },
-    { name: "LatestNews", slug: "/about" },
-    { name: "India", slug: "/contact" },
-    { name: "World", slug: "/write" },
-    { name: "Sports", slug: "/write" },
-    { name: "Business", slug: "/write" },
-    { name: "Technology", slug: "/write" },
-    { name: "More", slug: "/logout", condition: user },
-    { name: "About", slug: "/write" },
-    { name: "Contact", slug: "/write" },
+    {
+      name: "News",
+      slug: "/news",
+      dropdown: [
+        { name: "Technology", slug: "/technology" },
+        { name: "World", slug: "/world" },
+        { name: "India", slug: "/india" },
+        { name: "Sports", slug: "/sports" },
+        { name: "Business", slug: "/business" },
+      ],
+    },
+    { name: "Schemes", slug: "/scheme" },
+    { name: "Scholarships", slug: "/scholarship" },
+    { name: "Contact", slug: "/contact" },
+    { name: "About", slug: "/about" },
   ];
 
   return (
     <div className="topbar">
-       
       <div className="topbarLeft">
-        {socialIcons.map((icon, index) => (
-          <i key={index} className={`topbarIcon ${icon.iconClass}`}></i>
-        ))}
+        <div className="iconsAlign1">
+          <pre>{currentDate} {currentTime}</pre>
+        </div>
+        <h1
+          style={{
+            fontFamily: "Comic Sans MS, cursive, sans-serif",
+            fontSize: "3rem",
+            fontWeight: "bold",
+            marginRight: "40px"
+          }}
+        >
+          Jan Connect
+        </h1>
+        
+
+        <div className="iconsAlign">
+          
+          
+        <button className="logoutbtn">LogOut</button>
+          {socialIcons.map((icon, index) => (
+            <i key={index} className={`topbarIcon ${icon.iconClass}`}></i>
+          ))}
+        </div>
       </div>
-   
+
+      <hr />
+
       <div className="topbarCenter">
-        <ul className="topbarList">
-          {topListItems.map(
-            (item, index) =>
-              (item.condition === undefined || item.condition) && (
-                <li key={index} className="topbarListItem">
-                  <NavLink
-                    to={item.slug}
-                    className={({ isActive }) =>
-                      `link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    {item.name}
-                  </NavLink>
-                </li>
-              )
-          )}
+        <ul className="topbarList"
+        style={
+          {
+            marginBottom:"15px"
+          }
+        }
+        >
+          {topListItems.map((item, index) => (
+            <li
+              key={index}
+              className="topbarListItem"
+              onMouseEnter={() => setDropdownVisible(item.name === "News")}
+              onMouseLeave={() => setDropdownVisible(false)}
+            >
+              <NavLink
+                to={item.slug}
+                className={({ isActive }) => `link ${isActive ? "active" : ""}`}
+              >
+                {item.name}
+                {item.name === "News" && (
+                  <i className={`arrow ${dropdownVisible ? "rotate" : ""}`}></i>
+                )}
+              </NavLink>
+
+              {/* Dropdown for News */}
+              {item.name === "News" && dropdownVisible && (
+                <ul className="dropdown">
+                  {item.dropdown.map((dropdownItem, idx) => (
+                    <li key={idx} className="dropdownItem">
+                      <NavLink
+                        to={dropdownItem.slug}
+                        className="link"
+                      >
+                        {dropdownItem.name}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
         </ul>
       </div>
-      <div className="topbarRight">
+
+      {/* <div className="iconsAlign1">
         {user ? (
           <NavLink className="link" to="/settings">
-            <img
-              className="topbarImg"
-              src="/user.jpg"
-              alt="User"
-            />
+            <img className="topbarImg" src="/user.jpg" alt="User" />
           </NavLink>
         ) : (
           <ul className="topbarList">
@@ -144,9 +140,9 @@ function Header() {
             </li>
           </ul>
         )}
-        <i className="topbarSearchIcon fas fa-search"></i>
-      </div>
+      </div> */}
     </div>
   );
 }
+
 export default Header;

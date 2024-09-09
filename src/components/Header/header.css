@@ -1,85 +1,200 @@
-/* Ensure the topbar takes the full width and is fixed at the top */
+/* Main Topbar Styling */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .topbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Align items in topbarCenter and topbarLeft horizontally */
+.topbarLeft, .topbarCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  width: 100%;
+}
+
+.topbarLeft {
+  justify-content: space-between; /* Distribute space between items */
+  padding: 0 20px; /* Add padding for spacing */
+} 
+
+.logoutbtn
+{
+  background-color: rgb(29, 97, 97);
+  color:white;
+  margin-right: 20px;
+  margin-left: -20px;
+}
+
+.logoutbtn:hover
+{
+  background-color: rgb(45, 103, 126);
+}
+
+.topbarCenter {
+  justify-content: center;
+}
+
+.iconsAlign1 {
+  margin-right: 40px;
+}
+
+.topbarIcon {
+  color: black;
+  font-size: 18px;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.topbarIcon:hover {
+  color: lightgray;
+}
+
+hr {
+  width: 90%;
+  border: 0;
+  height: 1px;
+  background: #333;
+  margin: 20px 0;
+}
+
+.topbarList {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.topbarListItem {
+  margin: 0 15px;
+  position: relative;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.link.active {
+  font-weight: bold;
+}
+
+.link:hover {
+  color: lightgray;
+}
+
+.topbarImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.topbarSearchIcon {
+  color: black;
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  padding: 0;
+  list-style: none;
+}
+
+.dropdownItem {
+  padding: 10px 20px;
+}
+
+.dropdownItem a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.dropdownItem:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown on hover */
+.topbarListItem:hover .dropdown {
+  display: block;
+}
+
+/* Rotating Arrow for News */
+.arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* Mobile and Tablet Responsive Styles */
+@media screen and (max-width: 600px) {
+  .topbar {
+    padding-top: 30px;
+  }
+
+  .topbarIcon {
+    font-size: 20px;
+    margin: 0 5px;
+  }
+
+  .topbarList {
+    flex-direction: column;
+    display: none; /* Hidden initially */
+  }
+
+  .topbar.responsive .topbarList {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
-    padding-top: 100px;
-     /* Example background color */
-    width: 100%;
-    position: fixed; /* Fix the position to the top */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Ensure it stays above other content */
+  }
+
+  .topbarListItem {
+    margin: 10px 0;
   }
 
   hr {
-    border: 0;
-    height: 1px;
-    background: #333; /* Line color */
+    width: 80%;
   }
-  
-  /* Center the content in the middle */
-  .topbarLeft,
-  .topbarCenter,
-  .topbarRight {
-    display: flex;
-    align-items: center;
+
+  .icon {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
   }
-  
-  .topbarLeft,
-  .topbarRight {
-    gap: 15px; /* Spacing between icons or items */
+}
+
+/* Hide toggle menu (hamburger icon) on laptop screens and larger */
+@media screen and (min-width: 601px) {
+  .icon {
+    display: none;
   }
-  
-  .topbarIcon {
-    color: black; /* Social icon color */
-    font-size: 24px; /* Icon size */
-    transition: color 0.3s ease;
-  }
-  
-  .topbarIcon:hover {
-    color: lightgray; /* Icon hover color */
-  }
-  
-  .topbarCenter {
-    flex: 1; /* Allow center items to take up remaining space */
-    justify-content: center;
-  }
-  
-  .topbarList {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .topbarListItem {
-    margin: 0 15px; /* Spacing between list items */
-  }
-  
-  .link {
-    text-decoration: none;
-    color: black; /* Link color */
-    transition: color 0.3s ease;
-  }
-  
-  .link.active {
-    font-weight: bold; /* Active link styling */
-  }
-  
-  .link:hover {
-    color: lightgray; /* Link hover color */
-  }
-  
-  .topbarImg {
-    width: 40px; /* Profile image size */
-    height: 40px;
-    border-radius: 50%;
-  }
-  
-  .topbarSearchIcon {
-    color: white;
-    font-size: 20px;
-    margin-left: 15px;
-  }
-  
+}
