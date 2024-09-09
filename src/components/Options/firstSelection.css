@@ -1,0 +1,85 @@
+/* Container for news */
+
+.heading {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+  }
+.news-container {
+    display: flex;
+    justify-content: center;  /* Centers the content horizontally */
+    align-items: center;      /* Centers the content vertically */
+    width: 80%;               /* Updated to 80% of the screen width */
+    height: 150px;            /* Height of the container */
+    margin: auto;             /* Center horizontally by setting margins */
+    position: absolute;       /* Use absolute positioning */
+    top: 50%;                 /* Position it halfway down the screen */
+    left: 50%;                /* Position it halfway across the screen */
+    transform: translate(-50%, -50%); /* Adjust position by shifting left/up 50% of its size */
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  
+  /* Arrow buttons */
+  .arrow {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .arrow:hover {
+    background-color: #ccc;
+  }
+  
+  .left-arrow {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .right-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* News box container */
+  .news-box {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  /* Each news item */
+  .news-item {
+    width: 30%;
+    background-color: white;
+    padding: 10px;
+    margin: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .news-item h3 {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .news-item p {
+    font-size: 14px;
+    color: #555;
+  }
+  

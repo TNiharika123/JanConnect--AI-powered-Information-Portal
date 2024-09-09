@@ -6,7 +6,7 @@ import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // import InterestedSelection from './components/Options/InterestedSelection';
-// import MainPage from './components/MainPage/MainPage';
+import MainPage from './components/MainPage/MainPage';
 import Header from "./components/Header/Header";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <div className="min-h-screen w-screen ">
             {/* <InterestedSelection /> */}
             <Header />
-            {/* <MainPage/> */}
+             <MainPage/> 
         </div>
     );
 }
