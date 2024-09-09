@@ -12,9 +12,9 @@ function Header() {
       setCurrentTime(new Date().toLocaleTimeString());
     };
 
-    const intervalId = setInterval(updateTime, 1000); // Update every second
+    const intervalId = setInterval(updateTime, 1000); 
 
-    return () => clearInterval(intervalId); // Clean up the interval on component unmount
+    return () => clearInterval(intervalId); 
   }, []);
 
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -101,7 +101,7 @@ function Header() {
                 )}
               </NavLink>
 
-              {/* Dropdown for News */}
+              
               {item.name === "News" && dropdownVisible && (
                 <ul className="dropdown">
                   {item.dropdown.map((dropdownItem, idx) => (

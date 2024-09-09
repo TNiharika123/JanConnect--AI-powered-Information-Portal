@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './firstSelection.css';
+import './secondSelection.css';
 
 const newsData = [
   { id: 1, title: "News 1", description: "Description for News 1" },
@@ -27,7 +27,7 @@ const FirstSelection = () => {
 
   return (
     <div className="container-wrapper">
-      <h2 className="heading1">----- Sports ------</h2>
+      <h2 className="heading">----- Business ------</h2>
       <div className="news-container">
         <div className="arrow left-arrow" onClick={handlePrev}>&#9664;</div>
         <div className="news-box">

@@ -1,4 +1,3 @@
-/* Main Topbar Styling */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -18,17 +17,16 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Align items in topbarCenter and topbarLeft horizontally */
 .topbarLeft, .topbarCenter {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center content horizontally */
+  justify-content: center; 
   width: 100%;
 }
 
 .topbarLeft {
-  justify-content: space-between; /* Distribute space between items */
-  padding: 0 20px; /* Add padding for spacing */
+  justify-content: space-between; 
+  padding: 0 20px;
 } 
 
 .logoutbtn
@@ -112,7 +110,6 @@ hr {
   margin-left: 15px;
 }
 
-/* Dropdown Menu Styling */
 .dropdown {
   display: none;
   position: absolute;
@@ -140,12 +137,10 @@ hr {
   background-color: #f1f1f1;
 }
 
-/* Show the dropdown on hover */
 .topbarListItem:hover .dropdown {
   display: block;
 }
 
-/* Rotating Arrow for News */
 .arrow {
   margin-left: 8px;
   transition: transform 0.3s ease;
@@ -155,7 +150,6 @@ hr {
   transform: rotate(180deg);
 }
 
-/* Mobile and Tablet Responsive Styles */
 @media screen and (max-width: 600px) {
   .topbar {
     padding-top: 30px;
@@ -168,7 +162,7 @@ hr {
 
   .topbarList {
     flex-direction: column;
-    display: none; /* Hidden initially */
+    display: none;
   }
 
   .topbar.responsive .topbarList {
@@ -192,7 +186,6 @@ hr {
   }
 }
 
-/* Hide toggle menu (hamburger icon) on laptop screens and larger */
 @media screen and (min-width: 601px) {
   .icon {
     display: none;
