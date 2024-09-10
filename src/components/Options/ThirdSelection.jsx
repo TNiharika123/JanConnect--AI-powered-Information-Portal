@@ -14,7 +14,7 @@ const newsData = [
   { id: 6, title: "News 6", description: "Description for News 6" },
 ];
 
-const ThirdSelection = (categories) => {
+const ThirdSelection = ({categories}) => {
 
     const { selectedCategories } = useContext(SelectedCategoriesContext); // Access selected categories
 

@@ -15,10 +15,11 @@ const newsData = [
   { id: 6, title: "News 6", description: "Description for News 6" },
 ];
 
-const FirstSelection = (categories) => {
+const FirstSelection = ({categories}) => {
 
     const { selectedCategories } = useContext(SelectedCategoriesContext); // Access selected categories
 
+    console.log('Selected Categories:', selectedCategories); // Check if this is populated
 
     // const location = useLocation(); // Access the passed state
     // const { selectedCategories } = location.state || { selectedCategories: [] }; // Default to an empty array
@@ -36,10 +37,11 @@ const FirstSelection = (categories) => {
       setStartIndex(startIndex - 1);
     }
   };
+  console.log('FirstSelection Selected Categories:', categories); // Check the output here
 
   return (
     <div className="container-wrapper">
-      <h2 className="heading1">-----  {selectedCategories[0] || 'No category selected'} ------</h2>
+      <h2 className="heading1">-----  {categories[0]  || 'No category selected'} ------</h2>
       <div className="news-container">
         <div className="arrow left-arrow" onClick={handlePrev}>&#9664;</div>
         <div className="news-box">
