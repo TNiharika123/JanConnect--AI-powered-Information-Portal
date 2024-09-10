@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './secondSelection.css';
+import { useContext } from 'react';
+
+import { SelectedCategoriesContext } from '../context/SelectedCategoriesContext'; // Correct path // Import the context
+
 
 const newsData = [
   { id: 1, title: "News 1", description: "Description for News 1" },
@@ -10,7 +14,11 @@ const newsData = [
   { id: 6, title: "News 6", description: "Description for News 6" },
 ];
 
-const FirstSelection = () => {
+const SecondSelection = (categories) => {
+
+    const { selectedCategories } = useContext(SelectedCategoriesContext); // Access selected categories
+
+
   const [startIndex, setStartIndex] = useState(0);
 
   const handleNext = () => {
@@ -27,7 +35,7 @@ const FirstSelection = () => {
 
   return (
     <div className="container-wrapper">
-      <h2 className="heading">----- Business ------</h2>
+      <h2 className="heading">----- {categories[1] || 'No category selected'} ------</h2>
       <div className="news-container">
         <div className="arrow left-arrow" onClick={handlePrev}>&#9664;</div>
         <div className="news-box">
@@ -44,4 +52,4 @@ const FirstSelection = () => {
   );
 };
 
-export default FirstSelection;
+export default SecondSelection;
