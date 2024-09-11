@@ -1,0 +1,63 @@
+/* Container for the News component */
+.news-container1 {
+  padding: 0 15px;
+  margin-top: 270px; /* Adjust this value based on the height of your navbar */
+}
+
+
+/* Title of the News section */
+.news-container1 h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for the horizontal rule under the title */
+.news-container1 hr {
+  margin: 0 auto;
+  width: 50%;
+  border: 1px solid #ddd;
+}
+
+/* Flexbox container for the news articles */
+.news-container1 .row {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to the next line if needed */
+  justify-content: center; /* Centers the news items horizontally */
+}
+
+/* Individual column for each news item */
+.news-container1 .col-md-4 {
+  flex: 1 1 calc(33.333% - 30px); /* 3 items per row with space for gaps */
+  margin: 15px; /* Space around each item */
+}
+
+/* Buttons for pagination */
+.news-container1 .container.d-flex {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Pagination buttons */
+.news-container1 .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.news-container1 .btn-dark {
+  background-color: #343a40;
+  border: none;
+  color: #fff;
+}
+
+.news-container1 .btn-dark:disabled {
+  background-color: #6c757d;
+}
+
+.news-container1 .btn-dark:hover {
+  background-color: #23272b;
+}

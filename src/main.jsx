@@ -9,11 +9,16 @@ import App from "./App.jsx";
 import MainPage from "./components/MainPage/MainPage.jsx";
 import InterestSelection from "./components/Options/InterestedSelection.jsx";
 import { SelectedCategoriesProvider } from './components/context/SelectedCategoriesContext'; // Import your context provider
+import NewsDisplay from "./components/NewsPage/NewsDisplay.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/home",
     element: <MainPage />,
+  },
+  {
+    path: "/news",
+    element: <NewsDisplay/>
   },
   {
     path: "/",
@@ -23,7 +28,6 @@ const router = createBrowserRouter([
         path: "/",
         element: <InterestSelection />, // home page
       },
-      // Additional routes can be added here
     ],
   },
 ]);

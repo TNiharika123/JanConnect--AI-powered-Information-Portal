@@ -1,24 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { useState, useEffect } from "react";
 
 function Header() {
   const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString());
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
-
-  useEffect(() => {
-    const updateTime = () => {
-      setCurrentDate(new Date().toLocaleDateString());
-      setCurrentTime(new Date().toLocaleTimeString());
-    };
-
-    const intervalId = setInterval(updateTime, 1000); 
-
-    return () => clearInterval(intervalId); 
-  }, []);
-
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const user = true;
 
   const socialIcons = [
     { name: "facebook", iconClass: "fab fa-facebook-square" },
@@ -33,11 +20,11 @@ function Header() {
       name: "News",
       slug: "/news",
       dropdown: [
-        { name: "Technology", slug: "/technology" },
-        { name: "World", slug: "/world" },
-        { name: "India", slug: "/india" },
-        { name: "Sports", slug: "/sports" },
-        { name: "Business", slug: "/business" },
+        { name: "Technology", slug: "technology" },
+        { name: "Science", slug: "science" },
+        { name: "Entertainment", slug: "entertainment" },
+        { name: "Sports", slug: "sports" },
+        { name: "Business", slug: "business" },
       ],
     },
     { name: "Schemes", slug: "/scheme" },
@@ -45,6 +32,12 @@ function Header() {
     { name: "Contact", slug: "/contact" },
     { name: "About", slug: "/about" },
   ];
+
+  const navigate = useNavigate();
+
+  const handleCategorySelect = (slug) => {
+    navigate(`/news?category=${slug}`);
+  };
 
   return (
     <div className="topbar">
@@ -62,12 +55,8 @@ function Header() {
         >
           Jan Connect
         </h1>
-        
-
         <div className="iconsAlign">
-          
-          
-        <button className="logoutbtn">LogOut</button>
+          <button className="logoutbtn">LogOut</button>
           {socialIcons.map((icon, index) => (
             <i key={index} className={`topbarIcon ${icon.iconClass}`}></i>
           ))}
@@ -77,13 +66,7 @@ function Header() {
       <hr />
 
       <div className="topbarCenter">
-        <ul className="topbarList"
-        style={
-          {
-            marginBottom:"15px"
-          }
-        }
-        >
+        <ul className="topbarList" style={{ marginBottom: "15px" }}>
           {topListItems.map((item, index) => (
             <li
               key={index}
@@ -101,17 +84,16 @@ function Header() {
                 )}
               </NavLink>
 
-              
               {item.name === "News" && dropdownVisible && (
                 <ul className="dropdown">
                   {item.dropdown.map((dropdownItem, idx) => (
                     <li key={idx} className="dropdownItem">
-                      <NavLink
-                        to={dropdownItem.slug}
+                      <button
+                        onClick={() => handleCategorySelect(dropdownItem.slug)}
                         className="link"
                       >
                         {dropdownItem.name}
-                      </NavLink>
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -120,27 +102,6 @@ function Header() {
           ))}
         </ul>
       </div>
-
-      {/* <div className="iconsAlign1">
-        {user ? (
-          <NavLink className="link" to="/settings">
-            <img className="topbarImg" src="/user.jpg" alt="User" />
-          </NavLink>
-        ) : (
-          <ul className="topbarList">
-            <li className="topbarListItem">
-              <NavLink className="link" to="/login">
-                LOGIN
-              </NavLink>
-            </li>
-            <li className="topbarListItem">
-              <NavLink className="link" to="/register">
-                REGISTER
-              </NavLink>
-            </li>
-          </ul>
-        )}
-      </div> */}
     </div>
   );
 }
