@@ -1,103 +1,17 @@
-
-
-/* About.css */
-
-.about-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f9f9f9;
-    padding: 5rem 2rem; /* Add padding to account for the header height */
-  }
-  
-  .about-content {
-    background-color: white;
-    border-radius: 12px;
-    padding: 3rem;
-    max-width: 800px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .about-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-  }
-  
-  .about-description, .about-footer {
-    font-size: 1.1rem;
-    color: #4d4d4d;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-  }
-  
-  .about-subtitle {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #34495e;
-    margin-bottom: 1rem;
-  }
-  
-  .team-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .team-list li {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    padding: 0.5rem 0;
-  }
-  
-  .about-footer {
-    margin-top: 2rem;
-    font-weight: 500;
-    color: #7f8c8d;
-  }
-  
-  @media (max-width: 768px) {
-    .about-content {
-      padding: 1.5rem;
-    }
-  
-    .about-title {
-      font-size: 2rem;
-    }
-  
-    .about-description, .about-footer {
-      font-size: 1rem;
-    }
-  
-    .about-subtitle {
-      font-size: 1.5rem;
-    }
-  
-    .team-list li {
-      font-size: 1.1rem;
-    }
-  }
-  /* About.css
-
-.about-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f9f9f9;
-    padding: 2rem;
+/* Adding a consistent background color and gap */
+body {
+    background-color: #eef1f5; /* Light grayish-blue background */
 }
 
-.about-content {
-    background-color: white;
-    border-radius: 12px;
-    padding: 3rem;
-    max-width: 800px;
+.about-container {
+    
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem 4rem; /* Adding extra top padding for the gap */
+    background-color: #ffffff; /* White background for the content */
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    border-radius: 12px; /* Slight border-radius for smooth edges */
 }
 
 .about-title {
@@ -109,40 +23,52 @@
 
 .about-description,
 .about-footer {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #4d4d4d;
-    line-height: 1.8;
     margin-bottom: 2rem;
+    line-height: 1.8;
 }
 
 .about-subtitle {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #34495e;
+    margin-bottom: 2rem;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member-img {
+    width: auto;
+    height: auto;
+    max-width: 180px; /* Ensure the images aren't too large */
     margin-bottom: 1rem;
 }
 
-.team-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.team-list li {
+.team-member-name {
     font-size: 1.2rem;
     color: #2c3e50;
-    padding: 0.5rem 0;
 }
 
 .about-footer {
-    margin-top: 2rem;
+    margin-top: 3rem;
     font-weight: 500;
     color: #7f8c8d;
 }
 
 @media (max-width: 768px) {
-    .about-content {
-        padding: 1.5rem;
+    .team-container {
+        flex-direction: column;
     }
 
     .about-title {
@@ -158,7 +84,7 @@
         font-size: 1.5rem;
     }
 
-    .team-list li {
-        font-size: 1.1rem;
+    .team-member-img {
+        max-width: 150px;
     }
-} */
+}
