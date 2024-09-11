@@ -18,9 +18,14 @@ import Login from "./components/Login/Login.jsx";
 
 import About from './components/AboutUs/About.jsx'; // Import About Us component with the correct casing
 import Contact from './components/ContactUs/Contact.jsx'; // Import Contact Us component
+import Intropage from './components/intro/Intropage.jsx';
 
 
 const router = createBrowserRouter([
+  {
+    path: "/intro",
+    element: <Intropage />,
+  },
   {
     path: "/home",
     element: <MainPage />,
@@ -49,7 +54,6 @@ const router = createBrowserRouter([
   {
   path: "/register",
       element: <Signup />,
-=======
     path: "/about",
     element: <About />, // About Us page route
   },

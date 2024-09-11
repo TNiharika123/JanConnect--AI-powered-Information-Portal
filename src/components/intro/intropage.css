@@ -1,0 +1,35 @@
+/* src/components/IntroPage.css */
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height */
+    background-color: #f4f4f4;
+  }
+  
+  .intro-content {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* src/components/IntroPage.css */
+.intro-image {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    display: block;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #333;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  

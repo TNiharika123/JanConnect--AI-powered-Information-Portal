@@ -5,11 +5,14 @@
     border-radius:1% ;
   }
  
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #c0e8e7; /* Example: Light grey background */
-  }
+  /* App.css */
+body {
+  background-color: #288d8b; 
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
   
   
   .text-overlay {
