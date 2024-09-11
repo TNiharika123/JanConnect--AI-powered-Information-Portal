@@ -1,0 +1,47 @@
+.schemes-container {
+    padding: 20px;
+  }
+  
+  .scheme-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    overflow: hidden;
+  }
+  
+  .scheme-card-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .scheme-card-body {
+    padding: 20px;
+    height: 280px;
+  }
+  
+  .scheme-card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .scheme-card-text {
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+  
+  .scheme-card-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .scheme-card-btn:hover {
+    background-color: #0056b3;
+  }
+  
