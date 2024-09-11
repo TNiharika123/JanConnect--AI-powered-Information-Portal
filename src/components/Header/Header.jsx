@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
- main
-import { useState, useEffect } from "react";
+//  main
+// import { useState, useEffect } from "react";
 
 
 import { useState } from "react";
