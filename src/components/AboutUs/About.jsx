@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import Header from '../Header/Header'; // Import the Header component
 import './About.css'; // Assuming you create an About.css file for styling

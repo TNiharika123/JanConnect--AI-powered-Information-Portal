@@ -27,12 +27,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/news",
-    element: <NewsDisplay/>
+    element: <NewsDisplay />
   },
   {
 
-  path: "/culture",
-  element: <SchemesDisplay/>
+    path: "/culture",
+    element: <SchemesDisplay />
   },
   {
     // path: "/scheme",
@@ -47,9 +47,10 @@ const router = createBrowserRouter([
     element: <Login />, // home page
   },
   {
-  path: "/register",
-      element: <Signup />,
-=======
+    path: "/register",
+    element: <Signup />
+  },
+  {
     path: "/about",
     element: <About />, // About Us page route
   },

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { useLocation } from 'react-router-dom'; // Import the useLocation hook
 import FirstSelection from '../Options/FirstSelection';
