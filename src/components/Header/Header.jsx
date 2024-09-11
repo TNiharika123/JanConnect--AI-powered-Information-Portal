@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { useState, useEffect } from "react";
+// import SpeakButton from "../SpeakButton";
 
 function Header() {
   const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString());
@@ -27,7 +28,8 @@ function Header() {
         { name: "Business", slug: "business" },
       ],
     },
-    { name: "Schemes", slug: "/scheme" },
+    { name: "Schemes", url: "http://127.0.0.1:5000" }, // Use `url` instead of `slug`
+    { name: "Cultural News", slug:"/culture" },
     { name: "Scholarships", slug: "/scholarship" },
     { name: "Contact", slug: "/contact" },
     { name: "About", slug: "/about" },
@@ -74,15 +76,26 @@ function Header() {
               onMouseEnter={() => setDropdownVisible(item.name === "News")}
               onMouseLeave={() => setDropdownVisible(false)}
             >
-              <NavLink
-                to={item.slug}
-                className={({ isActive }) => `link ${isActive ? "active" : ""}`}
-              >
-                {item.name}
-                {item.name === "News" && (
-                  <i className={`arrow ${dropdownVisible ? "rotate" : ""}`}></i>
-                )}
-              </NavLink>
+              {item.url ? (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <NavLink
+                  to={item.slug}
+                  className={({ isActive }) => `link ${isActive ? "active" : ""}`}
+                >
+                  {item.name}
+                  {item.name === "News" && (
+                    <i className={`arrow ${dropdownVisible ? "rotate" : ""}`}></i>
+                  )}
+                </NavLink>
+              )}
 
               {item.name === "News" && dropdownVisible && (
                 <ul className="dropdown">
@@ -101,6 +114,8 @@ function Header() {
             </li>
           ))}
         </ul>
+        
+        {/* <SpeakButton text={textToSpeak} /> */}
       </div>
     </div>
   );

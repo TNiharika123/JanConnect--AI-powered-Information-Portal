@@ -1,4 +1,4 @@
-// main entry file (e.g., index.js)
+// src/index.js
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from 'react-redux';
@@ -8,8 +8,12 @@ import "./index.css";
 import App from "./App.jsx";
 import MainPage from "./components/MainPage/MainPage.jsx";
 import InterestSelection from "./components/Options/InterestedSelection.jsx";
-import { SelectedCategoriesProvider } from './components/context/SelectedCategoriesContext'; // Import your context provider
 import NewsDisplay from "./components/NewsPage/NewsDisplay.jsx";
+import SchemesDisplay from "./components/schemes/SchemesDisplay.jsx";
+import { TranslationProvider } from "./components/context/TranslationContext"; // Import TranslationProvider
+import { SelectedCategoriesProvider } from './components/context/SelectedCategoriesContext'; // Import SelectedCategoriesProvider
+import Signup from "./components/SignUp/SignUp.jsx";
+import Login from "./components/Login/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +23,26 @@ const router = createBrowserRouter([
   {
     path: "/news",
     element: <NewsDisplay/>
+  },
+  {
+  path: "/culture",
+  element: <SchemesDisplay/>
+  },
+  {
+    // path: "/scheme",
+    // element: <SchemesDisplay/>
+  },
+  {
+    path: "/select",
+    element: <InterestSelection />, // home page
+  },
+  {
+    path: "/login",
+    element: <Login />, // home page
+  },
+  {
+  path: "/register",
+      element: <Signup />,
   },
   {
     path: "/",
@@ -35,8 +59,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <SelectedCategoriesProvider> {/* Wrap with context provider */}
-        <RouterProvider router={router} />
+      <SelectedCategoriesProvider>
+        <TranslationProvider> {/* Wrap with TranslationProvider */}
+          <RouterProvider router={router} />
+        </TranslationProvider>
       </SelectedCategoriesProvider>
     </Provider>
   </React.StrictMode>

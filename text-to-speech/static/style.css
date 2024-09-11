@@ -1,0 +1,61 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+.language-selector {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.schemes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.scheme-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.scheme-card:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    color: #4CAF50;
+    margin-top: 0;
+}
+
+.speak-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.speak-btn:hover {
+    background-color: #45a049;
+}

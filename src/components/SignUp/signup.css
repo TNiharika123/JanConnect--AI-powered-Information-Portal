@@ -1,0 +1,106 @@
+/* Reset for body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+   
+}
+
+/* Container for centering the signup form */
+.signup-container {
+    margin-left: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6c757d;
+    height: 100vh; /* Ensure it takes the full viewport height */
+}
+
+.signup-form {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    width: 400px; /* Adjusted width */
+    max-height: 110vh; /* Ensure it doesn't exceed viewport height */
+    overflow-y: auto; /* Add scroll if content overflows */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+.signup-title {
+    text-align: center;
+    margin-bottom: 0.75rem; /* Reduced gap between title and form */
+}
+
+.form-group {
+    margin-bottom: 0.5rem; /* Reduced gap between form groups */
+}
+
+.city-state-group {
+    display: flex;
+    gap: 0.5rem; /* Space between city and state inputs */
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 0.25rem; /* Reduced gap between label and input */
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    padding: 0.375rem; /* Adjusted padding */
+    font-size: 0.875rem; /* Slightly smaller font size */
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem; /* Adjusted padding */
+    font-size: 1rem;
+    color: #fff;
+    background-color: #28a745;
+    border: 1px solid #28a745;
+    border-radius: 0.25rem;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    text-align: center;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.login-prompt {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.login-link {
+    display: block;
+    text-align: center;
+    padding: 5px; /* Adjusted padding */
+    font-size: 0.650rem; /* Slightly smaller font size */
+    color: #212529;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.login-link:hover {
+    background-color: #e9ecef;
+    border-color: #dae0e5;
+}

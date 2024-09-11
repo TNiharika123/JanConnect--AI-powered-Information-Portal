@@ -6,7 +6,7 @@ const TopNews = () => {
 
   return (
     <div className="container-layout">
-      <div className="left-container">Left Container (50%)</div>
+      <div className="left-container">Most Clicked Category of news by User</div>
       <div className="right-container">
         <div className="top-right-container">
           {gridItems.slice(0, 4).map((item, index) => (
