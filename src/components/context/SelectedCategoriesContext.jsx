@@ -11,4 +11,3 @@ export const SelectedCategoriesProvider = ({ children }) => {
         </SelectedCategoriesContext.Provider>
     );
 };
-  
