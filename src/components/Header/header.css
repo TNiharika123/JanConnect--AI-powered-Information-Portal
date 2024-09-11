@@ -3,6 +3,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Style for the logo */
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+/* Style for the stickers */
+.stickers {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.stickers img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Header styles */
 .topbar {
   display: flex;
   flex-direction: column;
@@ -20,25 +39,27 @@ body {
 .topbarLeft, .topbarCenter {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   width: 100%;
 }
 
 .topbarLeft {
-  justify-content: space-between; 
+  justify-content: space-between;
   padding: 0 20px;
-} 
-
-.logoutbtn
-{
-  background-color: rgb(29, 97, 97);
-  color:white;
-  margin-right: 20px;
-  margin-left: -20px;
 }
 
-.logoutbtn:hover
-{
+.logoutbtn {
+  background-color: rgb(29, 97, 97);
+  color: white;
+  margin-right: 20px;
+  margin-left: -20px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logoutbtn:hover {
   background-color: rgb(45, 103, 126);
 }
 
