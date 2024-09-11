@@ -1,10 +1,10 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom'; // Import the useLocation hook
 import FirstSelection from '../Options/FirstSelection';
 import SecondSelection from '../Options/SecondSelection';
 import ThirdSelection from '../Options/ThirdSelection';
 import TopNews from '../Options/TopNews';
 import Header from '../Header/Header';
-import { useLocation } from 'react-router-dom';
 
 const MainPage = () => {
   const location = useLocation();
@@ -24,3 +24,5 @@ const MainPage = () => {
 };
 
 export default MainPage;
+
+

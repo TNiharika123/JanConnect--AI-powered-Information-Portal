@@ -1,7 +1,12 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
+ main
 import { useState, useEffect } from "react";
-// import SpeakButton from "../SpeakButton";
+
+
+import { useState } from "react";
+import logo from '/logo.png'; // Import the logo
+ 
 
 function Header() {
   const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString());
@@ -44,6 +49,9 @@ function Header() {
   return (
     <div className="topbar">
       <div className="topbarLeft">
+        {/* Add Logo Here */}
+        <img src={logo} alt="JanConnect Logo" className="logo" style={{ height: '50px', marginRight: '15px' }} />
+
         <div className="iconsAlign1">
           <pre>{currentDate} {currentTime}</pre>
         </div>
@@ -65,7 +73,9 @@ function Header() {
         </div>
       </div>
 
-      <hr />
+
+
+      <hr/>
 
       <div className="topbarCenter">
         <ul className="topbarList" style={{ marginBottom: "15px" }}>
