@@ -15,7 +15,7 @@ function Header() {
   ];
 
   const topListItems = [
-    { name: "Home", slug: "/" },
+    { name: "Home", slug: "/home" },
     {
       name: "News",
       slug: "/news",

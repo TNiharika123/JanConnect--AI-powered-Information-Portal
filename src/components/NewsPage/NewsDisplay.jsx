@@ -15,7 +15,7 @@ function NewsDisplay() {
   return (
     <div>
       <Header />
-      <News key={category} pageSize={8} apiKey={apiKey} country="us" category={category} />
+      {/* <News key={category} pageSize={8} apiKey={apiKey} country="us" category={category} /> */}
     </div>
   );
 }
