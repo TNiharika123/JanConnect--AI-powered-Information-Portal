@@ -7,17 +7,18 @@ const News = (props) => {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
+  const [isFlipping, setIsFlipping] = useState(false); 
+  const [flipDirection, setFlipDirection] = useState("forward"); 
 
   useEffect(() => {
-    fetchNews(page);  
+    fetchNews(page);
   }, [page]);
 
   const fetchNews = async (page) => {
     try {
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+      const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
       if (data.articles) {
         setArticles(data.articles);
         setTotalResults(data.totalResults);
@@ -29,20 +30,30 @@ const News = (props) => {
 
   const handleNextClick = () => {
     if (page < Math.ceil(totalResults / props.pageSize)) {
-      setPage(page + 1);
+      setFlipDirection("forward");
+      triggerFlip(() => setPage(page + 1));
     }
   };
 
   const handlePrevClick = () => {
     if (page > 1) {
-      setPage(page - 1);
+      setFlipDirection("backward");
+      triggerFlip(() => setPage(page - 1));
     }
+  };
+
+  const triggerFlip = (callback) => {
+    setIsFlipping(true);
+    setTimeout(() => {
+      callback();
+      setIsFlipping(false); 
+    }, 600); 
   };
 
   const totalPages = Math.ceil(totalResults / props.pageSize);
 
   return (
-    <div className="news-container1 my-3">
+    <div className={`news-container1 my-3 ${isFlipping ? 'flipping' : ''} ${flipDirection}`}>
       <h2 className="news2 text-center my-2">DailyNEWS - Top Headlines Daily</h2>
       <hr />
       <div className="row">
@@ -89,19 +100,19 @@ const News = (props) => {
       </div>
     </div>
   );
-    };
+};
 
-  News.defaultProps = {
-    country: "in",
-    category: "technology",
-    pageSize: 8,
-  };
+News.defaultProps = {
+  country: "in",
+  category: "technology",
+  pageSize: 8,
+};
 
-  News.propTypes = {
-    country: PropTypes.string,
-    category: PropTypes.string,
-    pageSize: PropTypes.number,
-    apiKey: PropTypes.string.isRequired,
-  };
+News.propTypes = {
+  country: PropTypes.string,
+  category: PropTypes.string,
+  pageSize: PropTypes.number,
+  apiKey: PropTypes.string.isRequired,
+};
 
-  export default News;
+export default News;

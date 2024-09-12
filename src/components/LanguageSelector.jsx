@@ -14,7 +14,6 @@ function LanguageSelector() {
       <option value="es">Spanish</option>
       <option value="fr">French</option>
       <option value="de">German</option>
-      {/* Add more languages as needed */}
     </select>
   );
 }

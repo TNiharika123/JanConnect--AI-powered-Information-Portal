@@ -1,9 +1,9 @@
 /* Container for the News component */
 .news-container1 {
   padding: 0 15px;
-  margin-top: 270px; /* Adjust this value based on the height of your navbar */
+  margin-top: 270px;
+  perspective: 1000px; /* Enables 3D space for the flip effect */
 }
-
 
 /* Title of the News section */
 .news-container1 h2 {
@@ -26,12 +26,41 @@
   display: flex;
   flex-wrap: wrap; /* Allows wrapping to the next line if needed */
   justify-content: center; /* Centers the news items horizontally */
+  backface-visibility: hidden; /* Ensure back is hidden during flip */
 }
 
 /* Individual column for each news item */
 .news-container1 .col-md-4 {
-  flex: 1 1 calc(33.333% - 30px); /* 3 items per row with space for gaps */
+  flex: 1 1 calc(25% - 30px);  /* 3 items per row with space for gaps */
   margin: 15px; /* Space around each item */
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Flip animations */
+.news-container1.flipping.forward .row {
+  animation: flipForward 0.6s forwards;
+}
+
+.news-container1.flipping.backward .row {
+  animation: flipBackward 0.6s forwards;
+}
+
+@keyframes flipForward {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
+}
+
+@keyframes flipBackward {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
 }
 
 /* Buttons for pagination */

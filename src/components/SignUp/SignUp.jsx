@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react"; 
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import "./signup.css";
+import LocationContext from '../context/LocationContext';
 
 function Signup() {
     const [name, setName] = useState("");
@@ -9,18 +10,19 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
-    const [error, setError] = useState(null); // Add state for error message
+    const [error, setError] = useState(null); 
     const navigate = useNavigate();
+
+    const { setLocation } = useContext(LocationContext); 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLocation(city); 
         try {
-            // Make POST request to the backend registration route
-            await axios.post("http://localhost:5000/api/register", { name, email, password, city, state });
-            // Redirect to login page on successful registration
-            navigate("/");
+        
+            
+            navigate("/interest");
         } catch (err) {
-            // Handle errors here (e.g., show an error message to the user)
             console.error(err);
             setError(err.response?.data?.error || 'An unexpected error occurred');
         }
@@ -69,9 +71,12 @@ function Signup() {
                             <input 
                                 type="text" 
                                 placeholder='Enter City' 
+                                id="city"
                                 name='city' 
+                                value={city}
                                 className='form-input' 
                                 onChange={(e) => setCity(e.target.value)}
+                                required
                             />
                         </div>
                         <div className="form-group">

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const mongoURI = "mongodb://127.0.0.1:27017/JanConnect";
+const mongoURI = process.env.MONGO_URI;
 
 // mongoose returns promises - async function waits for promise to be resolved
 const connectToMongo = async () => {

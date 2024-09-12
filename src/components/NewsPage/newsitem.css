@@ -35,8 +35,8 @@
   /* Adjust the news-card styles to fit within the flex container */
   .news-card {
     width: 100%; /* Ensure full width within its flex item */
-    max-width: 350px; /* Set a max-width for each card */
-    height: 400px; /* Fixed height for all cards */
+    max-width: 300px; /* Set a max-width for each card */
+    height: 350px; /* Fixed height for all cards */
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

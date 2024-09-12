@@ -12,9 +12,15 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            const response = await axios.post("http://localhost:5000/api/login", { email, password });
+            const { user_id } = response.data;
+            
+            // Store user_id in local storage
+            localStorage.setItem('user_id', user_id);
+            
             // Make POST request to the backend login route
             const result = await axios.post("http://localhost:5000/api/login", { email, password });
-            navigate("/");
+            navigate("/interest");
             
             
         } catch (err) {

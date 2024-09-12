@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import for navigation
+import { useNavigate } from 'react-router-dom'; 
 
-// Categories data
 const categories = [
     { id: 1, name: 'World', imgSrc: '/world.jpg' },
     { id: 2, name: 'India', imgSrc: '/india.jpg' },
@@ -16,28 +15,24 @@ const categories = [
 
 const InterestSelection = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const navigate = useNavigate(); // Initialize navigation
+    const navigate = useNavigate();
 
-    // Handle form submission
     const handleSubmit = () => {
         if (selectedCategories.length === 3) {
-            // Pass selected categories to the next page
             navigate('/home', { state: { selectedCategories } });
         } else {
             alert('Please select 3 categories.');
         }
     };
 
-    // Handle category selection logic
     const handleSelect = (category) => {
-        // Check if the category is already selected
         if (selectedCategories.includes(category)) {
             setSelectedCategories(selectedCategories.filter(item => item !== category));
         } else if (selectedCategories.length < 3) {
             setSelectedCategories([...selectedCategories, category]);
         }
 
-        console.log("Selected Categories:", selectedCategories); // Debugging
+        console.log("Selected Categories:", selectedCategories); 
     };
 
     return (

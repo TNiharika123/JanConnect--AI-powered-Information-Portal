@@ -27,10 +27,6 @@ const UserSchema = new mongoose.Schema({
     state: {
         type: String,
         required: true,
-    },
-    preferences: {
-        type: [String], // Array of strings to store preferences
-        default: [], // Default to an empty array
     }
 });
 
